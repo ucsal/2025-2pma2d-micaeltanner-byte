@@ -1,10 +1,8 @@
-package br.com.mariojp.solid.dip;
-
-interface MailSender {
-    void send(String to, String subject, String body);
-}
+import br.com.mariojp.solid.dip.MailSender;
+import br.com.mariojp.solid.dip.User;
 
 public class EmailNotifier {
+
     private final MailSender mailSender;
 
     public EmailNotifier(MailSender mailSender) {
@@ -12,6 +10,6 @@ public class EmailNotifier {
     }
 
     public void welcome(User user) {
-        mailSender.send(user.email(), "Bem-vindo", "Olá " + user.name());
+        mailSender.send(user.getEmail(), "Bem-vindo!", "Olá, " + user.getName() + "! Bem-vindo ao nosso sistema.");
     }
 }
